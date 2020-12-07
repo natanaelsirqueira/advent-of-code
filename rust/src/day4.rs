@@ -13,7 +13,7 @@ const HAIR_COLOR_REGEX: &str = r"^#([0-9a-f]{6})$";
 const PASSPORT_ID_REGEX: &str = r"^\d{9}$";
 const EYE_COLORS: [&str; 7] = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"];
 
-pub fn run_part1() {
+pub fn run_part1() -> usize {
   let result = utils::file::read_to_string("../_inputs/day4.txt")
     .trim()
     .split("\n\n")
@@ -30,10 +30,12 @@ pub fn run_part1() {
     })
     .count();
 
-  println!("{}", result)
+  println!("{}", result);
+
+  result
 }
 
-pub fn run_part2() {
+pub fn run_part2() -> usize {
   let result = utils::file::read_to_string("../_inputs/day4.txt")
     .trim()
     .split("\n\n")
@@ -57,6 +59,8 @@ pub fn run_part2() {
     .count();
 
   println!("{}", result);
+
+  result
 }
 
 fn is_field_valid(key: &str, val: &str) -> bool {

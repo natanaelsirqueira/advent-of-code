@@ -2,22 +2,30 @@ use itertools::Itertools;
 
 use super::utils;
 
-pub fn run_part1() {
+pub fn run_part1() -> usize {
   let combination = utils::file::read_lines("../_inputs/day1.txt")
-    .map(|line| line.parse::<u32>().unwrap())
+    .map(|line| line.parse::<usize>().unwrap())
     .combinations(2)
-    .find(|combination| combination.iter().sum::<u32>() == 2020)
+    .find(|combination| combination.iter().sum::<usize>() == 2020)
     .unwrap();
 
-  println!("{}", combination[0] * combination[1])
+  let result = combination[0] * combination[1];
+  
+  println!("{}", result);
+
+  result
 }
 
-pub fn run_part2() {
+pub fn run_part2() -> usize {
   let combination = utils::file::read_lines("../_inputs/day1.txt")
-    .map(|line| line.parse::<u32>().unwrap())
+    .map(|line| line.parse::<usize>().unwrap())
     .combinations(3)
-    .find(|combination| combination.iter().sum::<u32>() == 2020)
+    .find(|combination| combination.iter().sum::<usize>() == 2020)
     .unwrap();
+  
+  let result = combination[0] * combination[1] * combination[2];
 
-  println!("{}", combination[0] * combination[1] * combination[2])
+  println!("{}", result);
+
+  result
 }

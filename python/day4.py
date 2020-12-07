@@ -1,4 +1,3 @@
-from utils import file_readlines
 import re
 
 input_file = open('../_inputs/day4.txt', 'r')
