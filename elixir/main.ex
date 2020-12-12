@@ -19,5 +19,8 @@
 # Aoc.Day7.run_part1()
 # Aoc.Day7.run_part2()
 
-Aoc.Day8.run_part1()
-Aoc.Day8.run_part2()
+# Aoc.Day8.run_part1()
+# Aoc.Day8.run_part2()
+
+Aoc.Day9.run_part1()
+Aoc.Day9.run_part2()

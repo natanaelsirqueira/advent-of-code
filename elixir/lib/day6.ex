@@ -1,6 +1,8 @@
 defmodule Aoc.Day6 do
+  @input "day6"
+
   def run_part1 do
-    "day6"
+    @input
     |> Aoc.Input.read_groups_of_lines()
     |> Enum.map(fn group ->
       group
@@ -13,7 +15,7 @@ defmodule Aoc.Day6 do
   end
 
   def run_part2 do
-    "day6"
+    @input
     |> Aoc.Input.read_groups_of_lines()
     |> Enum.map(fn group ->
       group
