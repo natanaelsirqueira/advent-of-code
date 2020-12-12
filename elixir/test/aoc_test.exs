@@ -50,4 +50,9 @@ defmodule AocTest do
     assert Aoc.Day10.run_part1() == 1690
     assert Aoc.Day10.run_part2() == 5289227976704
   end
+
+  test "day11" do
+    assert Aoc.Day11.run_part1() == 2483
+    assert Aoc.Day11.run_part2() == 2285
+  end
 end
