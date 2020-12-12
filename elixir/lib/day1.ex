@@ -1,6 +1,8 @@
 defmodule Aoc.Day1 do
+  @input "day1"
+
   def run_part1 do
-    "day1"
+    @input
     |> Aoc.Input.read_lines()
     |> Enum.map(&String.to_integer/1)
     |> combinations(2)
@@ -8,11 +10,10 @@ defmodule Aoc.Day1 do
       Enum.reduce(numbers, &Kernel.+/2) == 2020
     end)
     |> Enum.reduce(&Kernel.*/2)
-    |> IO.inspect
   end
 
   def run_part2 do
-    "day1"
+    @input
     |> Aoc.Input.read_lines()
     |> Enum.map(&String.to_integer/1)
     |> combinations(3)
@@ -20,11 +21,13 @@ defmodule Aoc.Day1 do
       Enum.reduce(numbers, &Kernel.+/2) == 2020
     end)
     |> Enum.reduce(&Kernel.*/2)
-    |> IO.inspect
   end
 
   defp combinations([], _size), do: []
-  defp combinations(_list, 0), do: [[]]
+
+  defp combinations(list, 1) do
+    Enum.map(list, &[&1])
+  end
 
   defp combinations([head | tail], size) do
     tail

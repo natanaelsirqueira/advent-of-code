@@ -1,6 +1,6 @@
-from utils import file_readlines
+from utils import file_read_lines
 
-passwords = file_readlines('../_inputs/day2.txt')
+passwords = file_read_lines('../_inputs/day2.txt')
 
 
 def run_part1():

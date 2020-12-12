@@ -1,6 +1,8 @@
 defmodule Aoc.Day2 do
+  @input "day2"
+
   def run_part1 do
-    "day2"
+    @input
     |> Aoc.Input.stream_lines()
     |> Enum.filter(fn policy_and_password ->
       [policy, password] = String.split(policy_and_password, ":")
@@ -18,11 +20,10 @@ defmodule Aoc.Day2 do
       count >= min and count <= max
     end)
     |> Enum.count()
-    |> IO.inspect
   end
 
   def run_part2 do
-    "day2"
+    @input
     |> Aoc.Input.stream_lines()
     |> Enum.filter(fn policy_and_password ->
       [policy, password] = String.split(policy_and_password, ":")
@@ -37,6 +38,5 @@ defmodule Aoc.Day2 do
       Enum.count([char1, char2], &(&1 == letter)) == 1
     end)
     |> Enum.count()
-    |> IO.inspect
   end
 end

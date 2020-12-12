@@ -133,14 +133,12 @@ defmodule Aoc.Day11 do
     read_layout()
     |> apply_rules(Part1)
     |> count_occupied_seats()
-    |> IO.inspect()
   end
 
   def run_part2 do
     read_layout()
     |> apply_rules(Part2)
     |> count_occupied_seats()
-    |> IO.inspect()
   end
 
   defp read_layout do

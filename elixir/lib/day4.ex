@@ -1,4 +1,5 @@
 defmodule Aoc.Day4 do
+  @input "day4"
   @required_fields ~w[byr iyr eyr hgt hcl ecl pid]a
 
   def run_part1 do
@@ -18,7 +19,7 @@ defmodule Aoc.Day4 do
   end
 
   defp read_input_and_parse_data do
-    "day4"
+    @input
     |> Aoc.Input.read_groups_of_lines()
     |> Stream.map(&parse_passport/1)
   end

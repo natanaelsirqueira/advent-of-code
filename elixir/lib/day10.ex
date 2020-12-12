@@ -1,18 +1,16 @@
 defmodule Aoc.Day10 do
-  @input "day10-example2"
+  @input "day10"
 
   def run_part1 do
-    read_adapters()
-    |> differences_product(0, 0, 0)
-    |> IO.inspect()
+    {diff1, diff3} = calc_differences(read_adapters(), 0, 0, 0)
+
+    diff1 * (diff3 + 1)
   end
 
   def run_part2 do
-    read_adapters()
-    |> List.insert_at(0, 0)
+    [0 | read_adapters()]
     |> Enum.reverse()
     |> count_arrangements([], %{})
-    |> IO.inspect()
   end
 
   defp read_adapters do
@@ -22,16 +20,12 @@ defmodule Aoc.Day10 do
     |> Enum.sort()
   end
 
-  defp differences_product([], _highest_adapter, diff1, diff3), do: diff1 * (diff3 + 1)
+  defp calc_differences([], _highest_adapter, diff1, diff3), do: {diff1, diff3}
 
-  defp differences_product(adapters, accumulated_joltage, diff1, diff3) do
-    {matching_adapters, rest} = Enum.split_while(adapters, &(&1 <= accumulated_joltage + 3))
-
-    [next_adapter | other_matching_adapters] = Enum.sort(matching_adapters)
-
-    case next_adapter - accumulated_joltage do
-      1 -> differences_product(other_matching_adapters ++ rest, next_adapter, diff1 + 1, diff3)
-      3 -> differences_product(other_matching_adapters ++ rest, next_adapter, diff1, diff3 + 1)
+  defp calc_differences([next_adapter | adapters], previous_adapter, diff1, diff3) do
+    case next_adapter - previous_adapter do
+      1 -> calc_differences(adapters, next_adapter, diff1 + 1, diff3)
+      3 -> calc_differences(adapters, next_adapter, diff1, diff3 + 1)
     end
   end
 

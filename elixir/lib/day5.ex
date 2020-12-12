@@ -1,5 +1,5 @@
 defmodule Aoc.Day5 do
-  @input "day5-example"
+  @input "day5"
 
   def run_part1 do
     calculate_seats_ids()

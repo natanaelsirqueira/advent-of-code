@@ -1,8 +1,8 @@
 from itertools import islice, count
 from functools import reduce
-from utils import file_readlines
+from utils import file_read_lines
 
-lines = file_readlines('../_inputs/day3.txt')
+lines = file_read_lines('../_inputs/day3.txt')
 
 
 def run_part1():
