@@ -28,5 +28,8 @@
 # IO.inspect Aoc.Day10.run_part1()
 # IO.inspect Aoc.Day10.run_part2()
 
-IO.inspect Aoc.Day11.run_part1()
-IO.inspect Aoc.Day11.run_part2()
+# IO.inspect Aoc.Day11.run_part1()
+# IO.inspect Aoc.Day11.run_part2()
+
+IO.inspect Aoc.Day12.run_part1()
+IO.inspect Aoc.Day12.run_part2()

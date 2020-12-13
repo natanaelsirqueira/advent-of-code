@@ -51,14 +51,14 @@ defmodule Aoc.Day11 do
     defp count_occupied_seats_in_each_direction(layout, row, col) do
       Enum.count(
         [
-          :up,
-          :down,
-          :left,
-          :right,
-          :diagonal_up_left,
-          :diagonal_up_right,
-          :diagonal_down_left,
-          :diagonal_down_right
+          :north,
+          :south,
+          :east,
+          :west,
+          :northwest,
+          :northeast,
+          :southwest,
+          :southeast
         ],
         fn direction ->
           if seat = seats_in_direction(row, col, direction) |> find_first_seen_seat(layout) do
@@ -68,55 +68,55 @@ defmodule Aoc.Day11 do
       )
     end
 
-    defp seats_in_direction(1, _col, :up), do: []
+    defp seats_in_direction(1, _col, :north), do: []
 
-    defp seats_in_direction(row, col, :up) do
+    defp seats_in_direction(row, col, :north) do
       Stream.zip((row - 1)..1, Stream.repeatedly(fn -> col end))
     end
 
-    defp seats_in_direction(@rows, _col, :down), do: []
+    defp seats_in_direction(@rows, _col, :south), do: []
 
-    defp seats_in_direction(row, col, :down) do
+    defp seats_in_direction(row, col, :south) do
       Stream.zip((row + 1)..@columns, Stream.repeatedly(fn -> col end))
     end
 
-    defp seats_in_direction(_row, 1, :left), do: []
+    defp seats_in_direction(_row, 1, :east), do: []
 
-    defp seats_in_direction(row, col, :left) do
+    defp seats_in_direction(row, col, :east) do
       Stream.zip(Stream.repeatedly(fn -> row end), (col - 1)..1)
     end
 
-    defp seats_in_direction(_row, @columns, :right), do: []
+    defp seats_in_direction(_row, @columns, :west), do: []
 
-    defp seats_in_direction(row, col, :right) do
+    defp seats_in_direction(row, col, :west) do
       Stream.zip(Stream.repeatedly(fn -> row end), (col + 1)..@columns)
     end
 
-    defp seats_in_direction(1, _col, :diagonal_up_left), do: []
-    defp seats_in_direction(_row, 1, :diagonal_up_left), do: []
+    defp seats_in_direction(1, _col, :northwest), do: []
+    defp seats_in_direction(_row, 1, :northwest), do: []
 
-    defp seats_in_direction(row, col, :diagonal_up_left) do
+    defp seats_in_direction(row, col, :northwest) do
       Stream.zip((row - 1)..1, (col - 1)..1)
     end
 
-    defp seats_in_direction(1, _col, :diagonal_up_right), do: []
-    defp seats_in_direction(_row, @columns, :diagonal_up_right), do: []
+    defp seats_in_direction(1, _col, :northeast), do: []
+    defp seats_in_direction(_row, @columns, :northeast), do: []
 
-    defp seats_in_direction(row, col, :diagonal_up_right) do
+    defp seats_in_direction(row, col, :northeast) do
       Stream.zip((row - 1)..1, (col + 1)..@columns)
     end
 
-    defp seats_in_direction(@rows, _col, :diagonal_down_left), do: []
-    defp seats_in_direction(_row, 1, :diagonal_down_left), do: []
+    defp seats_in_direction(@rows, _col, :southwest), do: []
+    defp seats_in_direction(_row, 1, :southwest), do: []
 
-    defp seats_in_direction(row, col, :diagonal_down_left) do
+    defp seats_in_direction(row, col, :southwest) do
       Stream.zip((row + 1)..@rows, (col - 1)..1)
     end
 
-    defp seats_in_direction(@rows, _col, :diagonal_down_right), do: []
-    defp seats_in_direction(_row, @columns, :diagonal_down_right), do: []
+    defp seats_in_direction(@rows, _col, :southeast), do: []
+    defp seats_in_direction(_row, @columns, :southeast), do: []
 
-    defp seats_in_direction(row, col, :diagonal_down_right) do
+    defp seats_in_direction(row, col, :southeast) do
       Stream.zip((row + 1)..@rows, (col + 1)..@columns)
     end
 
