@@ -21,3 +21,5 @@ My solutions for Advent of Code 2020 in Elixir, Python and Rust.
 | 14  | ✓✓  |     |     |
 | 15  | ✓✓  |     |     |
 | 16  | ✓✓  |     |     |
+| 17  | ✓✓  |     |     |
+| 18  | ✓✓  |     |     |
